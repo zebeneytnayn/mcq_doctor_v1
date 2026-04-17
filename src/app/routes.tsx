@@ -1,15 +1,28 @@
 import { createBrowserRouter } from 'react-router';
 import { Home } from './pages/Home';
 import { TestInterface } from './pages/TestInterface';
+import Unavailable from './pages/Unavailable';
 
 export const router = createBrowserRouter([
+  // Root should serve the main Home page
   {
     path: '/',
+    Component: Unavailable,
+  },
+  // keep an explicit /home route for legacy links
+  {
+    path: '/home',
     Component: Home,
   },
+  // Test interface
   {
     path: '/test',
     Component: TestInterface,
+  },
+  // Unavailable page (explicit route)
+  {
+    path: '/unavailable',
+    Component: Unavailable,
   },
   {
     path: '*',
